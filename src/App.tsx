@@ -3,7 +3,7 @@ import Button, {ButtonType, ButtonSize } from "./components/Button/button";
 function App() {
     return (
         <div>
-            <Button autoFocus>hello wowrd</Button>
+            <Button>hello wowrd</Button>
             <Button disabled>disabled</Button>
             <Button btnType={ButtonType.Primary} size={ButtonSize.Large}>Large Pramary</Button>
             <Button btnType={ButtonType.Danger} size={ButtonSize.Small}>Small Danger</Button>
