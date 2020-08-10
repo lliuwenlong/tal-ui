@@ -1,3 +1,7 @@
+/**
+ * @file Button 组件
+ * @author liuwenlong
+ */
 import React from "react";
 import classNames from "classnames"; // config
 
