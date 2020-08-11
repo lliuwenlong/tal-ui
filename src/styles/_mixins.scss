@@ -34,3 +34,11 @@
         outline: none;
     }
 }
+
+@mixin alert-style ($background, $border-color, $icon-color) {
+    background: $background;
+    border-color: $border-color;
+    .tal-alert-icon {
+        color: $icon-color;
+    }
+}

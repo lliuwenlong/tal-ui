@@ -41,7 +41,6 @@ $theme-colors:
   "light":      $light,
   "dark":       $dark
 );
-
 $font-family-sans-serif:      -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji" !default;
 $font-family-monospace:       SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace !default;
 $font-family-base:            $font-family-sans-serif !default;
@@ -286,3 +285,26 @@ $progress-bg:                       $gray-200 !default;
 $progress-border-radius:            $border-radius !default;
 $progress-bar-color:                $white !default;
 $progress-bar-transition:           width .6s ease !default;
+
+// alert
+$alert-font-size:                                    $font-size-base;
+$alert-padding:                                      15px;
+$alert-border-width:                                 1px;
+$alert-border-radius:                                2px;
+$alert-description-font-size:                        14px;
+$alert-show-icon-margin-left:                        10px;
+$alert-show-icon-margin-right:                       8px;
+$alert-show-icon-font-size:                          14px;
+$alert-show-icon-with-description-font-size:         24px;
+$alert-description-font-color:                      rgba(0,0,0,.65);
+$alert-icon-margin-top:                              2px;
+$alert-show-icon-position:
+(
+    "top":    21px,
+    "left":   16px
+);
+$alert-show-icon-with-description-position:
+(
+    "top": 15px,
+    "left": 24px
+)

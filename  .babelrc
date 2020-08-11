@@ -1,0 +1,9 @@
+{
+    "babel": {
+        "presets": [
+          "react-app"
+        ],
+        "plugins": ["jsx-control-statements"],
+        "extends": ["plugin:jsx-control-statements/recommended"]
+    }
+}

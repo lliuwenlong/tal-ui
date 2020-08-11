@@ -1,0 +1,54 @@
+.tal-alert {
+    padding: $alert-padding;
+    font-size: $alert-font-size;
+    width: 100%;
+    border: $alert-border-width solid transparent;
+    border-radius: $alert-border-radius;
+    position: relative;
+    display: flex;
+    align-items: center;
+    .tal-alert-message-wrapper {
+        padding-left: $alert-show-icon-margin-left;
+        flex: 1;
+    }
+    &.show-icon {
+        .tal-alert-icon-wrapper {
+            margin-top: $alert-icon-margin-top;
+        }
+        &.tal-alert-with-description {
+            align-items: flex-start;
+            .tal-alert-icon {
+                font-size: $alert-show-icon-with-description-font-size;
+            }
+        }
+        .tal-alert-icon {
+            font-size: $alert-show-icon-font-size;
+        }
+    }
+    span {
+        display: block;
+        &.description {
+            width: 100%;
+            font-size: $alert-description-font-size;
+            color: $alert-description-font-color;
+            word-break: break-all;
+        }    
+    }
+    .tal-alert-close-wrapper {
+        cursor: pointer;
+    }
+    &-success {
+        @include alert-style(lighten($success, 54%), lighten($success, 30%), $success);
+    }
+    &-info {
+        @include alert-style(lighten($info, 54%), lighten($info, 40%), $info);
+
+    }
+    &-warning{
+        @include alert-style(lighten($warning, 42%), lighten($warning, 20%), $warning);
+    }
+
+    &-error{
+        @include alert-style(lighten($danger, 42%), lighten($danger, 30%), $danger);
+    }
+}

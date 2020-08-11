@@ -1,14 +1,24 @@
 import React from 'react';
-import Button, {ButtonType, ButtonSize } from "./components/Button/button";
+import Alert, { AlertType } from './components/Alert/alert';
+import { type } from 'os';
+
 function App() {
     return (
         <div>
-            <Button>hello wowrd</Button>
-            <Button disabled>disabled</Button>
-            <Button btnType={ButtonType.Primary} size={ButtonSize.Large}>Large Pramary</Button>
-            <Button btnType={ButtonType.Danger} size={ButtonSize.Small}>Small Danger</Button>
-            <Button btnType={ButtonType.Link} href="http://www.baidu.com" target="_black">Baidu Link</Button>
-            <Button btnType={ButtonType.Link} href="http://www.baidu.com" disabled>Disabled Link</Button>
+            <Alert
+                type={AlertType.INFO}
+                message='info'
+                description='asdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasd'
+                showIcon={true}
+                closable={false}
+                closeText={<div>关闭</div>}
+            />
+            <hr/>
+            <Alert type={AlertType.SUCCESS} message='success' showIcon={true} />
+            <hr/>
+            <Alert type={AlertType.WARNING} message='warning' showIcon={true} />
+            <hr/>
+            <Alert type={AlertType.ERROR} message='error' showIcon={true} />
         </div>
     );
 }
