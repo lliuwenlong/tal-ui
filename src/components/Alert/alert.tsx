@@ -3,7 +3,7 @@
  * @author liuwenlong
  */
 
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import classNames from 'classnames';
 import {CheckCircleOutlined, ExclamationCircleOutlined, CloseCircleOutlined, CloseOutlined} from '@ant-design/icons'
 export enum AlertType {
@@ -36,27 +36,41 @@ export interface AlertProps {
     icon?: React.ReactNode,
     closable?: boolean,
     closeText?: string | React.ReactNode,
-    className?: string
+    className?: string,
+    banner?: boolean
+    onClose?: () => void,
+    afterClose?: () => void
 }
 const Alert: React.FC<AlertProps> = (props) => {
     const [isShow, setIsShow] = useState(true);
-    const { message, description, type, showIcon, icon, closable, closeText, className } = props;
+    const { message, description, type, showIcon, icon, closable, closeText, className, banner } = props;
+    const { onClose, afterClose} = props;
     const Icon = AlertTypeIcon[(type as string)];
+    console.log(banner);
     const classes = classNames('tal-alert', className, {
         [`tal-alert-${type}`]: type,
         'tal-alert-with-description': !!description,
-        'show-icon': showIcon
+        'show-icon': showIcon || banner,
+        'banner': banner
     });
 
-    function closeAlert () {
+    function closeAlert() {
+        onClose && onClose();
         setIsShow(false);
     }
 
+    useEffect(() => {
+        return () => {
+            if (!!isShow) {
+                afterClose && afterClose();
+            }
+        }
+    }, [isShow])
     return (
         isShow
         ?  <div className={classes}>
             <div className="tal-alert-icon-wrapper">
-                {showIcon && <span className="tal-alert-icon">{
+                {(showIcon || banner) && <span className="tal-alert-icon">{
                     !!icon ? icon : <Icon />
                 }</span>}
             </div>
@@ -79,7 +93,8 @@ const Alert: React.FC<AlertProps> = (props) => {
 Alert.defaultProps = {
     closable: false,
     showIcon: false,
-    type: AlertType.SUCCESS
+    type: AlertType.SUCCESS,
+    banner: false
 }
 
 export default Alert;

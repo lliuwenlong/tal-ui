@@ -10,11 +10,13 @@ function App() {
                 message='info'
                 description='asdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasd'
                 showIcon={true}
-                closable={false}
+                closable={true}
                 closeText={<div>关闭</div>}
+                onClose={() => alert(1)}
+                afterClose={() => alert(2)}
             />
             <hr/>
-            <Alert type={AlertType.SUCCESS} message='success' showIcon={true} />
+            <Alert type={AlertType.SUCCESS} message='success' banner />
             <hr/>
             <Alert type={AlertType.WARNING} message='warning' showIcon={true} />
             <hr/>

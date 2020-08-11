@@ -11,6 +11,9 @@
         padding-left: $alert-show-icon-margin-left;
         flex: 1;
     }
+    &.banner, &[banner]{
+        border: none;
+    }
     &.show-icon {
         .tal-alert-icon-wrapper {
             margin-top: $alert-icon-margin-top;
@@ -38,7 +41,7 @@
         cursor: pointer;
     }
     &-success {
-        @include alert-style(lighten($success, 54%), lighten($success, 30%), $success);
+        @include alert-style(lighten($success, 50%), lighten($success, 30%), $success);
     }
     &-info {
         @include alert-style(lighten($info, 54%), lighten($info, 40%), $info);
