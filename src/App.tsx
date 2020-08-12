@@ -1,11 +1,20 @@
 import React from 'react';
-import Alert, { AlertType } from './components/Alert/alert';
-import { type } from 'os';
+import Menu, {MenuMode} from './components/Menu/menu';
+import MenuItem from './components/Menu/menuItem';
 
 function App() {
     return (
-        <div>
-        </div>
+        <Menu defaultIndex={0} mode={MenuMode.VERTIACL}>
+            <MenuItem index={0}>
+                cool link
+            </MenuItem>
+            <MenuItem index={1} disabled>
+                cool link
+            </MenuItem>
+            <MenuItem index={2}>
+                cool link
+            </MenuItem>
+        </Menu>
     );
 }
 

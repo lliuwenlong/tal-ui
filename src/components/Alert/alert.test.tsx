@@ -18,7 +18,7 @@ describe('alert组件测试', () => {
         const element = wrapper.getByTestId('test-alert');
         expect(element).toBeInTheDocument();
         const classes = classNames('tal-alert', `tal-alert-${props.type}`);
-        expect(element.className).toBe(classes);
+        expect(element).toHaveClass(classes);
         const message = wrapper.getByText((props.message as string));
         expect(message).toBeInTheDocument();
         const closeIcon = wrapper.getByTestId('alert-close-icon').firstElementChild;
@@ -35,17 +35,10 @@ describe('alert组件测试', () => {
         };
         const wrapper = render(<Alert {...props} />);
         const element = wrapper.getByTestId('test-alert');
-        expect(element).toBeInTheDocument();
-        const classes = classNames('tal-alert', `tal-alert-${props.type}`, 'tal-alert-with-description');
-        expect(element.className).toBe(classes);
-        const message = wrapper.getByText((props.message as string));
-        expect(message).toBeInTheDocument();
+        const classes = classNames('tal-alert-with-description');
+        expect(element).toHaveClass(classes);
         const description = wrapper.getByText((props.description as string));
         expect(description).toBeInTheDocument();
-        const closeIcon = wrapper.getByTestId('alert-close-icon').firstElementChild;
-        expect(closeIcon).not.toBeInTheDocument();
-        const alertIcon = wrapper.getByTestId('test-alert-icon').firstElementChild;
-        expect(alertIcon).not.toBeInTheDocument();
     });
 
     it('props banner', () => {
@@ -57,13 +50,8 @@ describe('alert组件测试', () => {
         };
         const wrapper = render(<Alert {...props} />);
         const element = wrapper.getByTestId('test-alert');
-        expect(element).toBeInTheDocument();
-        const classes = classNames('tal-alert', `tal-alert-${props.type}`, 'tal-alert-with-description', 'show-icon', 'banner');
-        expect(element.className).toBe(classes);
-        const message = wrapper.getByText((props.message as string));
-        expect(message).toBeInTheDocument();
-        const closeIcon = wrapper.getByTestId('alert-close-icon').firstElementChild;
-        expect(closeIcon).not.toBeInTheDocument();
+        const classes = classNames('show-icon', 'banner');
+        expect(element).toHaveClass(classes);
         const alertIcon = wrapper.getByTestId('test-alert-icon').firstElementChild;
         expect(alertIcon).toBeInTheDocument();
     });
@@ -75,12 +63,9 @@ describe('alert组件测试', () => {
             showIcon: true,
         };
         const wrapper = render(<Alert {...props} />);
-        const message = wrapper.getByText((props.message as string));
-        expect(message).toBeInTheDocument();
         const element = wrapper.getByTestId('test-alert');
-        expect(element).toBeInTheDocument();
-        const classes = classNames('tal-alert', `tal-alert-${props.type}`, 'show-icon');
-        expect(element.className).toBe(classes);
+        const classes = classNames('show-icon');
+        expect(element).toHaveClass(classes);
     });
 
     it('icon render', () => {
@@ -91,14 +76,11 @@ describe('alert组件测试', () => {
             icon: <div>我是icon</div>
         };
         const wrapper = render(<Alert {...props} />);
-        const message = wrapper.getByText((props.message as string));
-        expect(message).toBeInTheDocument();
         const element = wrapper.getByTestId('test-alert');
         const iconElement = wrapper.getByText('我是icon');
-        expect(element).toBeInTheDocument();
         expect(iconElement).toBeInTheDocument();
-        const classes = classNames('tal-alert', `tal-alert-${props.type}`, 'show-icon');
-        expect(element.className).toBe(classes);
+        const classes = classNames('show-icon');
+        expect(element).toHaveClass(classes);
     });
 
     it('show close', () => {
@@ -110,12 +92,9 @@ describe('alert组件测试', () => {
             afterClose: jest.fn()
         };
         const wrapper = render(<Alert {...props} />);
-        const message = wrapper.getByText((props.message as string));
-        expect(message).toBeInTheDocument();
         const element = wrapper.getByTestId('test-alert');
-        expect(element).toBeInTheDocument();
         const classes = classNames('tal-alert', `tal-alert-${props.type}`);
-        expect(element.className).toBe(classes);
+        expect(element).toHaveClass(classes);
         const closeIcon = wrapper.getByTestId('alert-close-icon');
         fireEvent.click(closeIcon);
         expect(props.onClose).toHaveBeenCalled();
@@ -132,12 +111,9 @@ describe('alert组件测试', () => {
             afterClose: jest.fn()
         };
         const wrapper = render(<Alert {...props} />);
-        const message = wrapper.getByText((props.message as string));
-        expect(message).toBeInTheDocument();
         const element = wrapper.getByTestId('test-alert');
-        expect(element).toBeInTheDocument();
         const classes = classNames('tal-alert', `tal-alert-${props.type}`);
-        expect(element.className).toBe(classes);
+        expect(element).toHaveClass(classes);
         const close = wrapper.getByText('关闭');
         expect(close).toBeInTheDocument()
         const closeIcon = wrapper.getByTestId('alert-close-icon');
