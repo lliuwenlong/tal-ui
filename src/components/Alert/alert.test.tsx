@@ -8,7 +8,7 @@ import { render, fireEvent } from '@testing-library/react';
 import Alert, { AlertType, AlertProps} from './alert';
 import classNames from 'classnames';
 
-describe('alert组件测试', () => {
+describe('test alert', () => {
     it('defautl alert', () => {
         const props: AlertProps = {
             message: '123123123123',
