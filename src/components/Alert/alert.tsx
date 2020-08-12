@@ -46,7 +46,6 @@ const Alert: React.FC<AlertProps> = (props) => {
     const { message, description, type, showIcon, icon, closable, closeText, className, banner } = props;
     const { onClose, afterClose} = props;
     const Icon = AlertTypeIcon[(type as string)];
-    console.log(banner);
     const classes = classNames('tal-alert', className, {
         [`tal-alert-${type}`]: type,
         'tal-alert-with-description': !!description,
@@ -68,8 +67,8 @@ const Alert: React.FC<AlertProps> = (props) => {
     }, [isShow])
     return (
         isShow
-        ?  <div className={classes}>
-            <div className="tal-alert-icon-wrapper">
+        ?  <div className={classes} data-testid='test-alert'>
+            <div className="tal-alert-icon-wrapper" data-testid='test-alert-icon'>
                 {(showIcon || banner) && <span className="tal-alert-icon">{
                     !!icon ? icon : <Icon />
                 }</span>}
@@ -78,7 +77,7 @@ const Alert: React.FC<AlertProps> = (props) => {
             <span>{message}</span>
             {description && <span className="description">{description}</span>}
             </div>
-                <div className="tal-alert-close-wrapper" onClick={closeAlert}>
+                <div className="tal-alert-close-wrapper" onClick={closeAlert} data-testid='alert-close-icon'>
                 {
                     closable && (
                         closeText ? closeText : <CloseOutlined /> 
