@@ -1,3 +1,7 @@
+/**
+ * @file button组件测试用例
+ * @author liuwenlong
+ */
 import React from 'react';
 import { render, fireEvent } from '@testing-library/react';
 import Button, {ButtonProps, ButtonSize, ButtonType} from './button';
